@@ -4,7 +4,7 @@ import {test, expect, request} from '@playwright/test';
 
 // basic navigation test
 // can test with npx playwright test --ui
-test.skip('basic navigation test', async ({ page }) => {
+test('basic navigation test', async ({ page }) => {
     await page.goto('https://gitlab.com/');
     await page.waitForTimeout(3000);
     await page.reload();
@@ -15,7 +15,7 @@ test.skip('basic navigation test', async ({ page }) => {
 // test with npx playwright test --project chromium --headed for visual testing
 // Note:
 // locator digunakan untuk mencari elemen pada halaman
-test.skip('test interaction with the page', async ({ page }) => {
+test('test interaction with the page', async ({ page }) => {
     await page.goto('https://gitlab.com/');
     // kode ini akan mencari elemen dengan role link dan nama Get free trial lalu melakukan klik
     await page.locator('#be-navigation-desktop').getByRole('link', {name: 'Get free trial'}).click();
@@ -28,7 +28,7 @@ test.skip('test interaction with the page', async ({ page }) => {
 
 // test interaction with the page by click button sign in at main menu dropdown
 // test with npx playwright test --project chromium --headed for visual testing
-test.skip('test interaction with the page by click button sign in at main menu dropdown', async ({ page }) => {
+test('test interaction with the page by click button sign in at main menu dropdown', async ({ page }) => {
     await page.goto('https://gitlab.com/');
     await page.getByRole('link', {name: 'Sign in'}).click();
 });
@@ -68,9 +68,9 @@ test.describe('User Management API Testing', () => {
   // Tes 2: POST /users - Membuat pengguna baru
   test('POST /users - should create a new user', async () => {
     const newUser = {
-      name: 'budiman',
-      username: 'budiman',
-      email: 'budiman@example.com',
+      name: 'reza',
+      username: 'reza',
+      email: 'reza@example.com',
     };
 
     const response = await apiContext.post('/users', {
@@ -93,9 +93,9 @@ test.describe('User Management API Testing', () => {
   // Tes 3: PUT /users/{id} - Memperbarui pengguna
   test('PUT /users/1 - should update an existing user', async () => {
     const updatedUser = {
-      name: 'budiman Updated',
-      username: 'budimanupdated',
-      email: 'budimanupdated@example.com',
+      name: 'reza Updated',
+      username: 'rezaupdated',
+      email: 'rezaupdated@example.com',
     };
 
     const response = await apiContext.put('/users/1', {
